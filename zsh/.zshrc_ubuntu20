@@ -107,5 +107,32 @@ source $ZSH/oh-my-zsh.sh
 # |   C U S T O M   |
 # +=================+
 
+# waterfox path
 export PATH="$PATH:/opt/waterfox"
+
+# personal/opt bin path
 export PATH="$PATH:/opt/bin"
+
+# conda initialize was not automatically added to .zshrc, thus add it manually.
+# However, as it did not work on the old machine AND I switched to zsh instead of bash,
+# just add the path manually as before as well.
+#
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/localuser/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/localuser/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/localuser/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/localuser/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+#
+# manually add the path
+# (re-use exported path from sisko (Ubuntu 14) as conda initialize did not work there)
+export PATH="$HOME/anaconda3/bin:$PATH"
+

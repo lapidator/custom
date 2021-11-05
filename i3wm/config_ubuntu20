@@ -298,6 +298,8 @@ mode "resize" {
 # here: i3status
 bar {
         status_command i3status
+	#status_command i3blocks
+
 	position top
         strip_workspace_numbers yes
 	tray_output HDMI-1
@@ -475,7 +477,7 @@ exec_always xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse
 
 # enable floating for some browser-related windows
 # Waterfox
-for_window [class="Waterfox" title="Downloads"] floating enable
+#for_window [class="Waterfox" title="Downloads"] floating enable
 for_window [class="Waterfox" title="Developer Tools - chrome://browser/content/browser.xul"] floating enable
 for_window [class="Waterfox" title="Page Info"] floating enable
 for_window [class="Waterfox" title="About Waterfox"] floating enable
@@ -486,3 +488,10 @@ for_window [class="Nautilus" title="File Operations"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="org-eso-gasgano-Gasgano" title="Preferences Editor"] floating enable
 for_window [instance="matplotlib" class="matplotlib"] floating enable
+
+# for i3blocks
+#
+# calendar (gsimplecal)
+# window is floating by default in my case, but want to try moving the mouse
+# (the pixel are supposed to be the height of my i3bar)
+for_window [class="(?!)gsimplecal"] floating enable, move position mouse, move down 30 px

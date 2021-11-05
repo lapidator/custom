@@ -17,3 +17,11 @@ alias snek='python'
 # ssh
 alias sshsisko='ssh localuser@sisko'
 alias sshXsisko='ssh -X localuser@sisko'
+
+# conda environments
+alias py2enter='conda activate py27'
+alias pyexit='conda deactivate'
+
+# fits viewers
+alias ds9fs='ds9 -cmap bb -zscale -log -zoom 1.0'
+alias qfitsview='QFitsView_4.1'

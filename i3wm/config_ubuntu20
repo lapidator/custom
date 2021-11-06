@@ -297,7 +297,7 @@ mode "resize" {
 # set up a status/workspace bar
 # here: i3status
 bar {
-        status_command i3status
+	status_command i3status
 	#status_command i3blocks
 
 	position top

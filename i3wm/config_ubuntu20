@@ -183,7 +183,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#
+# Replaced by a new mode (see below).
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -219,7 +221,9 @@ bindsym $mod+Shift+comma move container to workspace prev
 bindsym $mod+Shift+period move container to workspace next
 
 # small Python script for log out, reboot, shut down, etc.
-bindsym $mod+Delete exec python ~/.config/i3/i3-exit.py
+#bindsym $mod+Delete exec python ~/.config/i3/i3-exit.py
+#
+# Cannot install PyGTK anymore (dependency of i3-lock.py), see new mode below
 
 # use screenshot of a corrupted filedialog as lockscreen
 bindsym $mod+End exec i3lock -i ~/.config/i3/corrupted_filedialog2.png
@@ -259,6 +263,22 @@ bindsym --release $mod+button2 kill
 ## right button toggles floating (DOES NOT WORK, AS RIGHT BUTTON IS USED FOR RESIZING!)
 #bindsym button3 floating toggle
 #bindsym $mod+button3 floating toggle
+
+# Log out, Reboot, Poweroff bindings in a new mode
+mode "[L]ogout, [R]eboot, [S]hutdown" {
+        #bindsym $mod+r exec systemctl reboot
+        #bindsym $mod+l exit
+        #bindsym $mod+s exec systemctl poweroff
+        bindsym r exec systemctl reboot
+        bindsym l exit
+        bindsym s exec systemctl poweroff
+
+        # exit mode via Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+bindsym $mod+Shift+e mode "[L]ogout, [R]eboot, [S]hutdown"
+
 
 
 
@@ -311,10 +331,10 @@ bar {
 	        separator #999999
 	        
 	        # multi-color properties #border #background #text
-	        focused_workspace #7efcff #222222 #7efcff
-	        active_workspace #000000 #000000 #tefcff
+	        focused_workspace #7efcff #000000 #7efcff
+	        active_workspace #000000 #000000 #7efcff
 	        inactive_workspace #000000 #000000 #999999
-	        urgent_workspace #900000 #000000 #tefcff
+	        urgent_workspace #900000 #000000 #7efcff
 	}
 }
 
@@ -360,9 +380,11 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 #client.focused          #7efcff #000000 #ffffff #ffffff   #7efcff
 client.focused          #7efcff #7efcff #000000 #ffffff   #7efcff
 #client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.focused_inactive #222222 #222222 #ffffff #333333   #222222
+#client.focused_inactive #222222 #222222 #ffffff #333333   #222222
+client.focused_inactive #000000 #000000 #7efcff #333333   #000000
 #client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.unfocused        #222222 #222222 #767676 #333333   #222222
+#client.unfocused        #222222 #222222 #767676 #333333   #222222
+client.unfocused        #000000 #000000 #999999 #333333   #000000
 #client.urgent           #2f343a #900000 #ffffff #900000   #900000
 #client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #000000
@@ -488,6 +510,7 @@ for_window [class="Nautilus" title="File Operations"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="org-eso-gasgano-Gasgano" title="Preferences Editor"] floating enable
 for_window [instance="matplotlib" class="matplotlib"] floating enable
+for_window [class="chatterino"] floating enable
 
 # for i3blocks
 #

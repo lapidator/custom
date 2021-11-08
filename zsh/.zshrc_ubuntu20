@@ -107,6 +107,9 @@ source $ZSH/oh-my-zsh.sh
 # |   C U S T O M   |
 # +=================+
 
+
+### PATH EXPORTS ###
+
 # waterfox path
 export PATH="$PATH:/opt/waterfox"
 
@@ -119,20 +122,44 @@ export PATH="$PATH:/opt/bin"
 #
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/home/localuser/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/home/localuser/anaconda3/etc/profile.d/conda.sh" ]; then
-#        . "/home/localuser/anaconda3/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/home/localuser/anaconda3/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
+__conda_setup="$('/home/localuser/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/localuser/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/localuser/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/localuser/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 # <<< conda initialize <<<
 #
 # manually add the path
 # (re-use exported path from sisko (Ubuntu 14) as conda initialize did not work there)
-export PATH="$HOME/anaconda3/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"  # commented out by conda initialize
 
+
+### PYTHON ###
+
+# add personal module directory for Python
+export PYTHONPATH="$PYTHONPATH:/home/localuser/git_code/PythonModules"
+
+
+### MISC ###
+
+# copy/paste script to remove duplicate PATH entries for bash
+# (in the hope that it works in zsh as well)
+if [ -n "$PATH" ]; then
+  old_PATH=$PATH:; PATH=
+  while [ -n "$old_PATH" ]; do
+    x=${old_PATH%%:*}       # the first remaining entry
+    case $PATH: in
+      *:"$x":*) ;;          # already there
+      *) PATH=$PATH:$x;;    # not there yet
+    esac
+    old_PATH=${old_PATH#*:}
+  done
+  PATH=${PATH#:}
+  unset old_PATH x
+fi

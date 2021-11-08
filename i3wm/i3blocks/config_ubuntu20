@@ -35,7 +35,8 @@ markup=none
 # test block
 [praktikumsdatenbank]
 full_text=Praktikumsdatenbank
-command=xdg-open "https://lecture.ph1.uni-koeln.de:8080/account/login?locale=en"
+#command=xdg-open "https://lecture.ph1.uni-koeln.de:8080/account/login?locale=en"
+command=waterfox --private-window "https://lecture.ph1.uni-koeln.de:8080/account/login?locale=en"
 color=#f12711
 
 [cpu_usage]

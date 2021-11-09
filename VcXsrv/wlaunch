@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# meant to be run with `bash -c "/path/to/wlaunch"` when running from e.g. a Windows shortcut
+
+# explicitly needed when launching with bash -c from Windows
+source ~/.bashrc
+export DISPLAY=:0
+i3
+
+# need to convert this to zsh (see below)
+# copy from /home/localuser/program/my/launchi3 (executable file)
+
+# #!/bin/zsh
+# # meant to be run with `debian -c "/path/to/thisfile"` when running from e.g. a Windows shortcut
+# source ~/.zshrc
+# cd
+# #export DISPLAY=:0 # this changed at some point, probably thus commented out here
+# i3

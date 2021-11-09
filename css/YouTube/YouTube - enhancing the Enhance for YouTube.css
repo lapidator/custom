@@ -1,0 +1,39 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@-moz-document domain("youtube.com") {
+
+/***********************************
+ This css is meant to be used in
+ unison with 'Enhancer for YouTube',
+ when already one of the included
+ styles is chosen.
+ ************************************/
+
+/* some minimalism by hiding unnecessary elements */
+    /* YouTube logo in header */
+    #logo.style-scope.ytd-masthead{ display: none; }
+    /* fix the header at the top, such that one can scroll down */
+    #masthead-container{ position: absolute !important;}
+
+/* a test on taking out most of the colors on YouTube
+   comment these lines if you do not like this */
+    /* this affects all static images */
+    #img{filter: grayscale(75%)}
+    /* text on Sign-In buttons */
+    ytd-button-renderer.style-blue-text[is-paper-button]{color: grey !important;}
+
+/* prevents messages being shown anew every session due to lost cookies, e.g. when browsing in private mode */
+    paper-dialog.style-scope.ytd-popup-container{ display: none !important;}
+    #player-ads.style-scope.ytd-watch-flexy{ display: none !important; } /* removes some ads */
+    yt-bubble-hint-renderer.style-scope.ytd-popup-container{ display: none !important; }
+    #ticker.style-scope.ytd-masthead{ display: none !important; } /* hides a privacy reminder */
+    yt-tooltip-renderer.style-scope.ytd-popup-container{ display: none !important; } /* hides a reminder not being signed in to YouTube */
+    div.video-ads.ytp-ad-module{ display: none !important; } /* hides ads being within the region of the video player */
+    div#alert-banner.style-scope.ytd-browse{ display: none !important; } /* hides info box about updated terms of service */
+    div.yt-consent.yt-consent-banner.clearfix{ display: none !important; }
+    iron-overlay-backdrop, paper-dialog#dialog.style-scope.ytd-consent-bump-lightbox{ display: none !important; }
+    div#ticker.style-scope.ytd-masthead{ display: none !important; }
+    div#offer-module{ display: none !important; } /* top right sidebar, offering to buy/rent a movie */
+    ytd-compact-movie-renderer{ display: none !important; } /* removes movies to buy/rent from suggestions in right sidebar */
+
+}

@@ -139,6 +139,8 @@ unset __conda_setup
 # (re-use exported path from sisko (Ubuntu 14) as conda initialize did not work there)
 export PATH="$HOME/anaconda3/bin:$PATH"  # commented out by conda initialize
 
+# IRAF path
+export PATH="/iraf/iraf:$PATH"
 
 ### PYTHON ###
 

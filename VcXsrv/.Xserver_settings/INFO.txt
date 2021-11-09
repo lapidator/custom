@@ -1,0 +1,32 @@
+This should apply AT LEAST to the following setup:
+- WSL(2) under Win10
+- VcXsrv under Win10
+- i3wm under WSL(2)
+- urxvt as i3-sensible-terminal (default)
+
+When starting a VcXsrv session, then starting i3wm and then firing up a
+terminal emulator for the shell of the WSL installation (bash, zsh,
+whatever), it is likely to open the urxvt terminal emulator.
+The defaults are white background, black foreground (standard text) and
+in order to change this to a black background and a white foreground, I
+found only one option working:
+Create a '.Xdefaults'-file in home directory of the WSL installation
+containing the following section:
+
+! this is a comment in files like .Xresources and .Xdefaults;
+! lines starting with '*' apply to all Xlib applications, 
+! e.g. xclock, xfontsel, etc.
+URxvt*foreground: rgb:ff/ff/ff
+URxvt*background: rgb:00/00/00
+
+I also tried creating a '.Xresources'-file, but this did not work. My
+notes suggest that this required the command 'xrdb', which is however
+not part of my WSL installation, but only of my Windows-installation of
+VcXsrv (i.e. in its installation directory there is 'xrdb.exe').
+I cannot remember whether I tried the '.Xresources'-file in the WSL
+home directory AND the Windows installation directory of VcXsrv or only
+one of those.
+
+For more information on Xresources and Xdefaults see
+https://superuser.com/a/243916
+(found via: https://superuser.com/q/585934 ).

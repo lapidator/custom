@@ -1,0 +1,22 @@
+@-moz-document regexp("^https?:\\/\\/((chat|meta|es|ja|pt|ru)\\.)*stackoverflow\\.com.*"), domain("serverfault.com"), domain("superuser.com"), domain("stackapps.com"), domain("mathoverflow.net"), domain("askubuntu.com"), regexp("^https?:\\/\\/((?!(area51|gaming|rpg)).*\\.)?stackexchange.com.*") {
+
+/* my changes: -----------------------------------------------------------------------------------------*/
+  
+  div#hero-content, div.hero-box.docs-announcement, div#herobox{
+    display: none ;
+  }
+
+  div#header{
+    display: none !important;
+    background: none !important;
+  }
+
+  div.topbar, div#chat-feature.module, div.module.question-stats, div#newsletter-ad, div.newsletter-anon, div.footer, div.ad-container{
+    display: none;
+  }
+  
+  div#copyright, div#svnrev, div#feed-link, div#footer.categories, h2.bottom-notice, p.privacy-policy-agreement, input#submit-button, div.new-login-form, form#post-form.post-form{
+    display: none;
+  }
+
+}

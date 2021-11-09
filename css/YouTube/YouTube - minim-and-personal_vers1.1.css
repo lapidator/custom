@@ -1,0 +1,82 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@-moz-document domain("youtube.com") {
+
+/* define global CSS variables */
+    /* the color to be used for links, some buttons and bars; use it via 'var(--global-color)' */
+    :root{--global-color:#7efcff;}
+    
+    
+/* some minimalism by hiding unnecessary elements
+    /* upload and sign in buttons in header */
+    ytd-button-renderer{display: none !important;}
+    /* YouTube logo in header */
+    ytd-topbar-logo-renderer#logo.style-scope.ytd-masthead{display: none !important;}
+    /* uploader profile image */
+    a.yt-simple-endpoint.style-scope.ytd-video-owner-renderer{display: none !important;}
+    /* form to write a comment */
+    #create{display: none !important;}
+    /* comment information such as author and date of posting */
+    #header{display: none !important;}
+    /* images from commenters */
+    #author-thumbnail{display: none !important;}
+    /* rating of comments */
+    #action-buttons{display: none !important;}
+    /* thumbnails of suggested videos, including suggested 'radio' playlists*/
+    ytd-thumbnail.style-scope.ytd-compact-video-renderer{display: none !important;}
+    ytd-thumbnail.style-scope.ytd-compact-radio-renderer{display: none !important;}
+    /* suggested video information, such as uploader and views */
+    ytd-video-meta-block{display: none !important;}
+    /* 'new' notification below suggested video */
+    .badge-style-type-simple.ytd-badge-supported-renderer{display: none !important;}
+    /* 'up next' writing at the top of right side bar */
+    #upnext{display: none !important;}
+    /* thumbs up and down buttons */
+    #top-level-buttons{display: none !important;}
+    
+    
+/* some beautifications to match a personal style &/or taste */
+    /* change the color of the progress bar and the according button */
+    div.ytp-play-progress.ytp-swatch-background-color{background-color: var(--global-color) !important;}
+    div.ytp-scrubber-button.ytp-swatch-background-color{background-color: var(--global-color) !important;}
+    /* text and border color of the 'live now' notification */
+    .badge-style-type-live-now.ytd-badge-supported-renderer{color: var(--global-color) !important; border: 1px solid var(--global-color) !important;}
+    /* change the color of the like bar */
+    #like-bar.ytd-sentiment-bar-renderer{background: var(--global-color) !important;}
+    /* change color of toggle switch to enable/disable autoplay */
+    .toggle-button.paper-toggle-button{background-color: var(--global-color) !important;}
+    /* FAILED change the video control buttons' colors */
+    /*.ytp-chrome-controls{color: #7efcff !important;}*/
+    /* change the color of links */
+    a:link{color: var(--global-color) !important;}
+    
+    
+/* positioning, size and interactive visibility of various elements */
+    /* show and hide top bar on mouse-over */
+        #masthead-container{ position: absolute !important;
+                             z-index: 999 !important;
+                             top: -50px !important;
+                             height: 40px !important;
+                             width: 100% !important;
+                             padding: 50px 0px 0px 0px;
+                             transition: all .5s ease-in-out !important;
+                             opacity: 0 !important;}
+    #masthead-container:hover{top: -50px !important;
+                              transition: all .1s !important;
+                              opacity: 1 !important;}
+    /* re-adjust the main content's position for the video to be in the upper left corner */
+    #page-manager{ position: relative !important;
+                   top: -79px !important;
+                   left: -23px;}
+    /* shift down the side bar to be able to switch/click things even when top bar is shown */
+    #related{position: relative !important;
+             top: 56px !important;}
+    /* avoid shift of the like bar into other elements and 'stretch' it a bit */
+    #sentiment{position: relative !important;
+               width: 250px !important;}
+    /* change the video thumbnail size e.g. at YouTube home */
+    ytd-thumbnail.ytd-grid-video-renderer{width: 105px !important;
+                                          height: 59px !important;}
+    ytd-grid-video-renderer{width: 105px !important;
+                                          height: 146px !important;}
+}

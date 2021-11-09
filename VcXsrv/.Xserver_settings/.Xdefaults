@@ -1,0 +1,11 @@
+! apparently ! is the comment operator in .Xresources and .Xdefaults
+! syntax starting with just * applies to all Xlib applications (xclock, xfontsel, etc)
+! i.e. this is a good way to go for a unified color scheme
+! using .Xresources does NOT work in my case; the cmd xrdb is not even found by the system, probably as xrdb resides as xrdb.exe in my Windows VcXsrv installation
+! using .Xdefaults DOES work
+! for more information on Xresources and Xdefaults see: https://superuser.com/a/243916
+! found via: https://superuser.com/q/585934
+URxvt*foreground: rgb:ff/ff/ff
+URxvt*background: rgb:00/00/00
+URxvt*scrollBar: false
+URxvt*font: xft:DejaVu Sans Mono:size=9

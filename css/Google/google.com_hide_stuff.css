@@ -1,0 +1,37 @@
+/** hide some elements like banners,
+    notifications, etc.
+**/
+#taw,
+#Rzn5id, 
+div.USRMqe, 
+#promos, 
+#pushdown{
+    display: none !important;
+}
+
+/** due to some problems with the
+    searchform as some banner above
+    is removed, renew some position
+    argument to fix it quite
+    amateurish
+**/
+#sform{
+    position: static;
+}
+
+/** in google maps I can only remove
+    the text in a top banner, but not
+    the banner body; thus try to shift
+    it upwards
+    top: -30px;
+    and
+    margin-top: -30px;
+    both work, but create a white bar
+    at the bottom
+**/
+/*
+#app-container{
+    top: 0px;
+    margin-top: -30px;
+}
+*/

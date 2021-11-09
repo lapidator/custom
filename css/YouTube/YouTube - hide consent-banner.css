@@ -1,0 +1,13 @@
+@-moz-document domain(youtube.com)
+{
+  div.yt-consent.yt-consent-banner.clearfix{
+    display: none !important;
+  }
+  /*ytd-consent-bump-lightbox#consent-bump.style-scope.ytd-app*/
+  iron-overlay-backdrop, paper-dialog#dialog.style-scope.ytd-consent-bump-lightbox{
+    display: none !important;
+  }
+  div#ticker.style-scope.ytd-masthead{
+    display: none !important;
+  }
+}

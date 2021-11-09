@@ -1,0 +1,5 @@
+Rainmeter layouts are saved in
+C:\Users\Username\AppData\Roaming\Rainmeter\Layouts\...
+The Rainmeter.ini file is also at the same path, but next
+to the folders, which contain the layouts.
+

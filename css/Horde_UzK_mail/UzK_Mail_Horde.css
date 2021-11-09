@@ -1,0 +1,214 @@
+/* IF NECESSARY USE THIS
+@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document domain("uni-koeln.de")
+{
+    REMOVE THIS LINE AND ADD CONTENT HERE INSTEAD
+}
+*/
+
+/*****
+TO DOs:
+
+- left sidebar slider (drag & drop) vanished almost, only a tiny bit on the top is left; find out why and repair that
+--> #horde-head border-bottom does shift the tiny bit down for values >2px
+--> when another window is opened next to the browser window the slider re-appears and stays, even after closing the second window; however, reloading the page makes the slider vanish again
+
+- change color of logout button to match the overall style
+
+- I missed some color changes; find more and change those
+*****/
+
+/**************************
+define global CSS variables
+**************************/
+
+/* e.g. colors for links or buttons
+definition via :root{<name>:<value>;}, e.g. :root{--global-color:#000;}
+used via var(<name>), i.e. var(--global-color) */
+
+:root{
+    --bg0:#191919;
+    --bg1:#333;
+
+    --txt0:#DDD;
+    --txt1:#A5A5A5;
+
+    --link0:#5BF;
+
+    --inv-bg0:#E7F7E7;
+    --inv-bg1:#DDD;
+    --inv-bg-selected:#BCA;
+    --inv-bg-header:#DEC;
+
+    --inv-txt0:#222;
+    --inv-txt1:#5A5A5A;
+    --inv-txt-unseen:#5A0;
+    --inv-txt-link:#A40;
+
+    --font-size:75%;
+    /*--font-family: ;*/
+    --inv-inversion:55%;
+}
+
+
+
+/***********************************************
+simple yet effective way to invert lots of stuff
+***********************************************/
+
+html{
+    filter: invert(100%);
+}
+
+
+
+/**********************
+body (general settings)
+**********************/
+
+body{
+    font-size: var(--font-size);
+    background: var(--bg0);
+}
+
+a{
+    color: var(--inv-txt-link)
+}
+
+#msglistHeaderHoriz,
+.msgHeaders
+{
+    background-image: none;
+    background-color: var(--inv-bg0);
+}
+
+div.flagUnseen{
+    color: var(--inv-txt-unseen);
+}
+
+div.vpRowSelected{
+    color: var(--inv-txt0);
+    background-color: var(--inv-bg-selected) !important;
+}
+
+img{
+    filter: invert(100%);
+}
+
+
+
+/***********************
+left sidebar (navigaton)
+***********************/
+
+#horde-sidebar{
+    /*color: var(--txt1);*/
+    background-color: var(--bg1);
+}
+
+.horde-new{
+    background-image: none;
+    background-color: var(--inv-bg0);
+}
+
+/* WARNING: following icon is also effected by icon settings below */
+/*a#composelink.icon{
+    color: var(--txt1);
+    text-shadow: -1px -1px 0px var(--inv-txt0);
+}*/
+
+
+
+/****
+icons
+****/
+
+.horde-icon-settings,
+#horde-search-icon,
+a.icon
+{
+    filter: invert(var(--inv-inversion));
+}
+
+
+
+/*****
+header
+*****/
+
+#horde-head,
+#horde-logo
+{
+    background-image: none;
+    background-color: var(--inv-bg-header);
+    border-bottom: 5px solid var(--inv-bg0);
+}
+
+#horde-navigation,
+.horde-point-center-active,
+.horde-point-left-active,
+.horde-point-right-active,
+.horde-dropdown
+{
+    color: var(--inv-txt1);
+    background-image: none;
+    background-color: var(--inv-bg0);
+}
+
+a.horde-mainnavi,
+a.horde-mainnavi:link,
+a.horde-mainnavi:visited,
+a.horde-mainnavi:active,
+a.horde-mainnavi:hover,
+a.horde-mainnavi-active,
+a.horde-mainnavi-active:link,
+a.horde-mainnavi-active:visited,
+#horde-version
+{
+    color: var(--inv-txt1);
+    text-shadow: -1px -1px 0px var(--txt0);
+}
+
+ul{
+    background-color: var(--inv-bg0) !important;
+}
+
+.horde-dropdown ul{
+    border: 1px solid var(--inv-bg1);
+}
+
+#horde-sub{
+    background-color: var(--inv-bg-header);
+}
+
+#horde-info,
+#horde-date
+{
+    color: var(--inv-txt1);
+    text-shadow: -1px -1px 0px var(--txt0);
+}
+
+
+
+/***********************
+messages & notifications
+***********************/
+
+#Growler{
+    filter: invert(100%);
+}
+
+
+
+
+
+/* REDUNDANT STUFF DUE TO invert FILTER ABOVE */
+
+/************
+messages pane
+************/
+/*
+#msgSplitPane{
+    background-color: var(--bg0);
+}
+*/

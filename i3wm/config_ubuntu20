@@ -327,8 +327,10 @@ bar {
 	colors {
 	        # single color properties
 	        background #000000
-	        statusline #ffffff
-	        separator #999999
+	        #statusline #ffffff
+	        statusline #7efcff
+	        #separator #999999
+	        separator #7efcff
 	        
 	        # multi-color properties #border #background #text
 	        focused_workspace #7efcff #000000 #7efcff

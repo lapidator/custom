@@ -10,7 +10,8 @@ general {
         colors = true
 		color_good = "#FFFFFF"
 		color_bad = "#FF0000"
-		color_degraded = "#AA6600"
+#		color_degraded = "#AA6600"
+		color_degraded = "#999999"
         interval = 1
 }
 
@@ -75,5 +76,6 @@ cpu_usage {
 }
 
 disk "/" {
-        format = "used:%used(%percentage_used)"
+#        format = "used:%used(%percentage_used)"
+        format = "disk:%percentage_used"
 }

@@ -246,6 +246,9 @@ bindsym $mod+b border toggle
 # start calculator using designated calculator key
 bindsym XF86Calculator exec "gnome-calculator"
 
+# save a screenshot when pressing `Print` button ('PrtScrn')
+bindsym Print exec scrot '%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
+
 # mouse binds
 #
 # buttons according to 'xev | grep button'

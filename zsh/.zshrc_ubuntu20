@@ -141,6 +141,7 @@ export PATH="$HOME/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # IRAF path
 export PATH="/iraf/iraf:$PATH"
+export PATH="/iraf/iraf/bin:$PATH"
 
 ### PYTHON ###
 

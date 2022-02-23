@@ -2,8 +2,8 @@ INFO
 ====
 
 This repository contains different files and information around the
-the topic of **customization**.
-Topics can be (but are not limited to):
+topic of **customization**.
+Contents revolve around (but are not limited to):
   * Windows, incl. WSL (Windows Subsystem for Linux)
   * Linux (Ubuntu), incl. i3wm and zsh/oh-my-zsh
   * Webbrowsers, esp. Firefox and derivatives thereof (Waterfox)
@@ -19,16 +19,16 @@ topic. This is also one of the reasons I want to share even some of
 my very chaotic files, as they still might contain useful info for
 someone else.
 
-Some customizations, especialy the case for css, are simply removing
+Some customizations, especially the case for css, are simply removing
 or hiding things, to get a cleaner look and improve functionality.
 (Obviously this is only the case if hidden or removed things are not
-used and thus for example take up space.)
+used and thus only take up space.)
 
 
 ## NOTE
-This repository does not contain *all* files necessary to actually
+This repository does *not* contain *all* files necessary to actually
 use them. Files potentially containing sensitive information and/or
-images might be left out. Eexternal contents are also left out,
+images might be left out. External contents are also left out,
 especially if I think that I might violate some copyright by sharing
 it.
 
@@ -73,12 +73,12 @@ As an example, Rainmeter might have been updated by now, breaking the
 functionality of the skins provided there.
 
 I also reduced the amount of webbrowser customization. Working on
-this might be fun, but I find css to be very time consuming. As at
-least each major update of the webbrowser breaks some of the scripts,
-and I do not want to spend too much time on this, I often use css
-[userstyles.org](https://userstyles.org/), and maybe tweak those a
-little or simply add my own very small css to implement small
-changes. Small updates are possible anytime.
+this might be fun, but I find css to be very time consuming. As  each
+major update of a webbrowser or website tends to break some of the
+scripts, and I do not want to spend too much time on this, I often
+use css from [userstyles.org](https://userstyles.org/), and maybe
+tweak those a little or simply add my own very small css to implement
+small changes. Small updates might happen anytime.
 The 'userChrome' is also likely to be updated every time I switch to
 a new major release of Waterfox, which induces the need for changes.
 

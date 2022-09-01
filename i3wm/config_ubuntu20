@@ -350,26 +350,30 @@ bar {
 # +---------------------------------+
 # |   A U D I O   K E Y B I N D S   |
 # +---------------------------------+
-## for Pulse Audio controls
+## get keycodes (e.g. for media keys)
 # to get the keycode and name use this
-#xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'
+# $ xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'
 # it opens a window, which has to be focussed/the cursor must be in there, then press the keys
-## pulseaudio and sinks
+## pulseaudio (Pulse Audio control) and sinks
 # by default pactl cmds use '0' as the sink number, but for some reason it is different in my case
-# after running 'pactl list sinks' I got `Sink #1 [...]`, so I just changed the sink number to '1' here
-
-# either use media keys or Ctrl(+Shift) with comma(lower), period(raise), slash(mute)
+# after running
+# $ pactl list sinks
+# I got `Sink #1 [...]`, so I just changed the sink number to '1' here
+# another command which gives a more readable overview of the sinks is
+# $ pactl list sinks | egrep  'Sink|State|Mute|Volume'
+# it appears to be possible to use `@DEFAULT_SINK@` instead of the sink number, e.g. `0` (usual default)
+## key assignments
 # increase sound volume
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +5% && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 1 +5%
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 1 +1%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +1%
 # decrease sound volume
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -5% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 1 -5%
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 1 -1%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -1%
 # mute sound
 #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 
 

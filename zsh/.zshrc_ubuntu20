@@ -143,6 +143,9 @@ export PATH="$HOME/anaconda3/bin:$PATH"  # commented out by conda initialize
 export PATH="/iraf/iraf:$PATH"
 export PATH="/iraf/iraf/bin:$PATH"
 
+# gasgano & ESO SOFI pipeline (esorex) path
+export PATH="$HOME/SOFI/pipelines/bin:$HOME/gasgano/bin:$PATH"
+
 ### PYTHON ###
 
 # add personal module directory for Python
@@ -150,6 +153,9 @@ export PYTHONPATH="$PYTHONPATH:/home/localuser/git_code/PythonModules"
 
 
 ### MISC ###
+
+# CPL (common pipeline library): for gasgano's access to recipes and Java stuff
+export CPLDIR="$HOME/SOFI/pipelines"
 
 # copy/paste script to remove duplicate PATH entries for bash
 # (in the hope that it works in zsh as well)

@@ -22,6 +22,7 @@ alias sshXsisko='ssh -X localuser@sisko'
 alias py2enter='conda activate py27'
 alias pyexit='conda deactivate'
 
-# fits viewers
+# fits viewers & editing software
 alias ds9fs='ds9 -cmap bb -zscale -log -zoom 1.0'
 alias qfitsview='QFitsView_4.1'
+alias gasgano="LC_ALL=C gasgano"

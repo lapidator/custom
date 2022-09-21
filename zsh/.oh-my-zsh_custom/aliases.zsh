@@ -24,5 +24,11 @@ alias pyexit='conda deactivate'
 
 # fits viewers & editing software
 alias ds9fs='ds9 -cmap bb -zscale -log -zoom 1.0'
+alias ds9spec='ds9 -cmap bb -zscale -log -zoom to fit'
+alias ds9imag='ds9 -cmap bb -zscale -zoom to fit'
 alias qfitsview='QFitsView_4.1'
 alias gasgano="LC_ALL=C gasgano"
+
+# handy tiny scripts
+alias filenumber='find . -type f | wc -l'
+alias sorry='echo "No problem."'

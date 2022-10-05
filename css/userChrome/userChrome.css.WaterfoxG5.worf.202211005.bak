@@ -1,0 +1,146 @@
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/****************************
+ INFO:
+ made by LuSt
+ some parts adapted from
+ other css found on the
+ internet;
+ links:
+ https://github.com/Timvde/UserChrome-Tweaks/blob/master/toolbars/compact-toolbars.css
+
+ This version is used on Waterfox G5 using the included 'Dark' theme
+ ('Dark 1.2' as of writing this).
+ Additionally, use 'Customize Toolbar ...' to choose 'Compact' as the 'Density'
+ setting. Although it is indicated that this is not supported anymore, this
+ theme relies on this density setting.
+ ****************************/
+
+    /* bookmarks */
+
+        /* hide some unwanted entries from the bookmarks menu dropdown list */
+        #bookmarksShowAll,
+        #organizeBookmarksSeparator,
+        #menu_bookmarkThisPage,
+        #menu_bookmarkAllTabs,
+        #bookmarksToolbarFolderMenu,
+        #bookmarksToolbarSeparator,
+        #menu_unsortedBookmarks {
+                display: none !important;
+            }
+
+    /* navigation and address bar */
+
+        /* adapt urlbar's opacity depending on focus/hover/else */
+        :root[uidensity=compact] #urlbar {
+                opacity: 0.1!important;
+                font-size: unset !important;
+                min-height: 24px !important;
+                /*position: static !important;*/
+                z-index: 9999 !important;
+            }
+        :root[uidensity=compact] #urlbar:hover {opacity: 0.7!important;}
+        :root[uidensity=compact] #urlbar[focused="true"] {
+                opacity: 1 !important;
+                /*position: static !important; /*static, relative, absolute, sticky*/
+                /*z-index: 99999 !important; */
+            }
+
+        /* navigation-bar size (default: 32px) */
+        :root[uidensity=compact] #nav-bar{ height: 30px !important; }
+
+        /* navigation bar buttons */
+        :root[uidensity=compact] #nav-bar .toolbarbutton-1 {
+                padding: 0px !important;
+            }
+
+        /* left box in address bar, showing security info, etc. */
+        :root[uidensity=compact] #identity-box {
+                max-height: 22px;
+            }
+
+        /* navigation bar background color */
+        /*:root[uidensity=compact] .browser-toolbar:not(.titlebar-color){
+                background-color: rgb(23, 21, 28) !important;
+            }*/
+
+        /* urlbar border when focussed */
+        /* (this change probably affects more elements, though, as it is very general) */
+        :root:-moz-lwtheme {
+				--focus-outline-color: #723F8C !important; /* same color: rgb(114, 63, 140) */
+			}
+
+    /* title bar and tabs */
+
+        /* hide each tab icon */
+        .tab-icon-image { display: none !important; }
+
+        /* titlebar size */
+        :root[uidensity=compact] #titlebar{ height: 25px !important; }
+
+        /* tab height (no effect observed so far)*/
+        :root[uidensity=compact] #TabsToolbar .tabbrowser-tabs{ height: 22px !important; }
+        
+        /* tab-bar inner padding (affects distances, e.g. between buttons and tab-bar border) */
+        /* example: stretches newtab-button from squeezed state back to normal shape */
+        :root[uidensity=compact] #TabsToolbar{
+                --toolbarbutton-inner-padding: 3px !important;
+            }
+
+        /* general tab colors */
+        :root[uidensity=compact] .tabbrowser-tab{
+                color: rgb(114, 63, 140) !important; /* in hex #723F8C */
+                background-color: rgb(23, 21, 28) !important;
+                --tab-corner-rounding: 0px !important; /* for G4: bottom corner radius */
+                /*border-radius: 0px !important;*/ /* tried to also get rid of round top corners */
+            }
+
+        /* selected tab */
+		:root[uidensity=compact] .tabbrowser-tab:is([selected], [multiselected]) .tab-context-line{
+				background-color: #723F8C !important; /* same color: rgb(114, 63, 140) */
+				height: 2px !important;
+			}
+        /*:root[uidensity=compact] .tabbrowser-tab[selected="true"]{*/
+        /*:root[uidensity=compact] #TabsToolbar .tabbrowser-tab[selected="true"]{
+                max-height: 25px !important;
+            }*/
+
+        /* Tab height(s) */
+        :root[uidensity=compact] {
+                --tab-min-height: 22px !important;
+            }
+
+        /* window manager buttons (e.g. Windows top right buttons) */
+        :root[uidensity=compact] .titlebar-buttonbox-container{
+                /*height: 23px !important;*/
+
+                transform: scale(1.00, 0.75) !important; /* squish buttons to fit bar */
+                
+                /*position: relative !important;*/ /* static is default */
+                /*top: 0px !important;*/
+                /*right: -20px !important;*/ /* should shift buttons to the right, but does not work*/
+                /*z-index: 9999 !important;*/
+                /*transform: scale(1.00, 1.00) !important;*/
+                /*border: none !important;*/
+		display: none !important; /* remove buttons for i3wm, as then they are unnecessary */
+            }
+
+        /* selected tab colors */
+        :root[uidensity=compact] .tabbrowser-tab[visuallyselected="true"]{
+                color: rgb(180, 180, 180) !important; /* text color */
+            }
+        
+        /* shrink extra spacer on Linux (at least for me Linux only) */
+        :root[uidensity=compact] .titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
+                max-width: 1px !important;
+            }
+
+    /* miscellaneous */
+
+        /* adjust private browsing symbol */
+        :root[uidensity=compact] .private-browsing-indicator{
+                filter: grayscale(100%) !important; /* remove color */
+                transform: scale(0.75, 0.75) !important; /* reduce size */
+            }
+
+}

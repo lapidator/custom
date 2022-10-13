@@ -110,8 +110,8 @@ source $ZSH/oh-my-zsh.sh
 
 ### PATH EXPORTS ###
 
-# waterfox path
-export PATH="$PATH:/opt/waterfox"
+# waterfox path # should now be included in /opt/bin via symlink
+#export PATH="$PATH:/opt/waterfox"
 
 # personal/opt bin path
 export PATH="$PATH:/opt/bin"
@@ -145,6 +145,10 @@ export PATH="/iraf/iraf/bin:$PATH"
 
 # gasgano & ESO SOFI pipeline (esorex) path
 export PATH="$HOME/SOFI/pipelines/bin:$HOME/gasgano/bin:$PATH"
+
+# fv (Fv: The Interactive FITS File Editor)
+# does not work via a symlink in /opt/bin, as files from the fv dir are missing
+export PATH="$PATH:/opt/fv5.5.2"
 
 ### PYTHON ###
 

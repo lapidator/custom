@@ -108,6 +108,10 @@ mouse_warping none
 # +-------------------------------+
 # |   I 3 W M   K E Y B I N D S   |
 # +-------------------------------+
+## When in doubt which name the modifier keys have, use:
+#$ xmodmap
+## This shows the names of the modifiers, e.g., `mod2` is my case `Num_Lock`.
+## reference: https://unix.stackexchange.com/a/566593
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -243,8 +247,12 @@ bindsym $mod+x exec ~/.config/i3/lock_i3.sh
 # (switch between normal, none, and pixel 1)
 bindsym $mod+b border toggle
 
-# start calculator using designated calculator key
+# start calculator
+# 1st if a designated calculator media key is present
 bindsym XF86Calculator exec "gnome-calculator"
+# 2nd if there is no extra key
+# depends on NumLock being switched on; then just use modifier key and keypad's `0`
+bindsym $mod+mod2+KP_0 exec "gnome-calculator"
 
 # save a screenshot when pressing `Print` button ('PrtScrn')
 bindsym Print exec scrot '%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'

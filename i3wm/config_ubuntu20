@@ -523,7 +523,12 @@ for_window [class="waterfox" title="Page Info"] floating enable
 for_window [class="waterfox" title="About Waterfox"] floating enable
 for_window [class="waterfox" title="Library"] floating enable
 
-# more floating
+# SAOImage ds9 (fits image viewer)
+for_window [class="Toplevel" title="Preferences"] floating enable
+for_window [class="Toplevel" title="Load Regions"] floating enable
+for_window [class="Toplevel" title="Contour Parameters"] floating enable
+
+# more misc. floating
 for_window [class="Nautilus" title="File Operations"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="org-eso-gasgano-Gasgano" title="Preferences Editor"] floating enable

@@ -28,6 +28,9 @@ alias ds9spec='ds9 -cmap bb -zscale -log -zoom to fit'
 alias ds9imag='ds9 -cmap bb -zscale -zoom to fit'
 alias gasgano="LC_ALL=C gasgano"
 
+# gotop
+alias gotopfs='gotop -r 2s -c own'
+
 # handy, tiny scripts
 alias filenumber='find . -type f | wc -l'
 alias sorry='echo "No problem."'

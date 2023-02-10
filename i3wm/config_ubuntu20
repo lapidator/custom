@@ -491,10 +491,17 @@ exec_always setxkbmap -option 'grp:alt_shift_toggle'
 # on Ubuntu20 the mouse has different properties, so try the 2 following
 # libinput Accel Speed (325): 0.000000
 # libinput Accel Profile Enabled (328): 1, 0
-exec xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse")" 328 0, 1
-exec_always xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse")" 328 0, 1
-exec xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse")" 325 -0.6
-exec_always xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse")" 325 -0.6
+#exec xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse")" 328 0, 1
+#exec_always xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse")" 328 0, 1
+#exec xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse")" 325 -0.6
+#exec_always xinput set-prop "$(xinput list --id-only "Logitech USB Optical Mouse")" 325 -0.6
+#
+# After an update the property IDs changed: Speed 325->327 & Profile Enabled 328->330,
+# but instead of the IDs it is possible to use the property name.
+exec xinput set-prop "Logitech USB Optical Mouse" "libinput Accel Speed" -0.6
+exec_always xinput set-prop "Logitech USB Optical Mouse" "libinput Accel Speed" -0.6
+exec xinput set-prop "Logitech USB Optical Mouse" "libinput Accel Profile Enabled" 0, 1
+exec_always xinput set-prop "Logitech USB Optical Mouse" "libinput Accel Profile Enabled" 0, 1
 
 
 
@@ -524,9 +531,14 @@ for_window [class="waterfox" title="About Waterfox"] floating enable
 for_window [class="waterfox" title="Library"] floating enable
 
 # SAOImage ds9 (fits image viewer)
-for_window [class="Toplevel" title="Preferences"] floating enable
-for_window [class="Toplevel" title="Load Regions"] floating enable
-for_window [class="Toplevel" title="Contour Parameters"] floating enable
+#for_window [class="Toplevel" title="Preferences"] floating enable
+#for_window [class="Toplevel" title="Load Regions"] floating enable
+#for_window [class="Toplevel" title="Save Regions"] floating enable
+#for_window [class="Toplevel" title="Contour Parameters"] floating enable
+for_window [class="Toplevel" title="*Preferences*"] floating enable
+for_window [class="Toplevel" title="Load*"] floating enable
+for_window [class="Toplevel" title="Save*"] floating enable
+for_window [class="Toplevel" title="*Parameters*"] floating enable
 
 # more misc. floating
 for_window [class="Nautilus" title="File Operations"] floating enable
